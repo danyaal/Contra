@@ -24,49 +24,49 @@ public class Contra : MonoBehaviour {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(5*2.6f);
-			pos.y = 2f;
+			pos.y = 1f;
 			ground.transform.position = pos;
 		}
 		for(int i = 0; i < 1; ++i) {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(8*2.6f);
-			pos.y = -1f;
+			pos.y = -3f;
 			ground.transform.position = pos;
 		}
 		for(int i = 0; i < 2; ++i) {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(9*2.6f);
-			pos.y = -4f;
+			pos.y = -7f;
 			ground.transform.position = pos;
 		}
 		for(int i = 0; i < 1; ++i) {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(11*2.6f);
-			pos.y = -1f;
+			pos.y = -3f;
 			ground.transform.position = pos;
 		}
 		for(int i = 0; i < 3; ++i) {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(13*2.6f);
-			pos.y = 2f;
+			pos.y = 1f;
 			ground.transform.position = pos;
 		}
 		for(int i = 0; i < 2; ++i) {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(19*2.6f);
-			pos.y = -4f;
+			pos.y = -7f;
 			ground.transform.position = pos;
 		}
 		for(int i = 0; i < 3; ++i) {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(20*2.6f);
-			pos.y = -1f;
+			pos.y = -3f;
 			ground.transform.position = pos;
 		}
 		// First Bridge
@@ -112,7 +112,7 @@ public class Contra : MonoBehaviour {
 			GameObject ground = Instantiate (GroundPrefab) as GameObject;
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(43*2.6f);
-			pos.y = -4f;
+			pos.y = -7f;
 			ground.transform.position = pos;
 		}
 	}
