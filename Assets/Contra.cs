@@ -115,6 +115,195 @@ public class Contra : MonoBehaviour {
 			pos.y = -7f;
 			ground.transform.position = pos;
 		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(46*2.6f);
+			pos.y = -3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 7; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(49*2.6f);
+			pos.y = -2f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 6; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(53*2.6f);
+			pos.y = -7f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 7; ++i) {
+			GameObject bridge = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(57*2.6f);
+			pos.y = 5f;
+			bridge.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(59*2.6f);
+			pos.y = -3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(62*2.6f);
+			pos.y = -3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 5; ++i) {
+			GameObject bridge = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(63*2.6f);
+			pos.y = 8f;
+			bridge.transform.position = pos;
+		}
+		for(int i = 0; i < 1; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(65*2.6f);
+			pos.y = -2f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 3; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(67*2.6f);
+			pos.y = -1f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(70*2.6f);
+			pos.y = 3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 1; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(73*2.6f);
+			pos.y = -7f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(73*2.6f);
+			pos.y = -1f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 3; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(74*2.6f);
+			pos.y = -4f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(77*2.6f);
+			pos.y = 3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(78*2.6f);
+			pos.y = 8f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 1; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(78*2.6f);
+			pos.y = -7f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 1; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(79*2.6f);
+			pos.y = -3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(81*2.6f);
+			pos.y = 3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 5; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(82*2.6f);
+			pos.y = 3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 3; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(85*2.6f);
+			pos.y = -7f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(89*2.6f);
+			pos.y = -3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 2; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(92*2.6f);
+			pos.y = 3f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 7; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(94*2.6f);
+			pos.y = -7f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 4; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(94*2.6f);
+			pos.y = 5f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 3; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(95*2.6f);
+			pos.y = -1f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 1; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(98*2.6f);
+			pos.y = 0f;
+			ground.transform.position = pos;
+		}
+		for(int i = 0; i < 1; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(99*2.6f);
+			pos.y = -3f;
+			ground.transform.position = pos;
+		}
 	}
 	
 	// Update is called once per frame
