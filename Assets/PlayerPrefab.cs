@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
 	public float		Gravity	=	9.81f;
 	public float 		walkSpeed= 30f;
