@@ -18,6 +18,8 @@ public class PlayerPrefab : MonoBehaviour {
 	public bool			airLeft = false;
 	public bool 		airRight=false;
 
+	public Camera cam = Camera.main;
+
 
 	// Use this for initialization
 	void Start () {
@@ -102,6 +104,12 @@ public class PlayerPrefab : MonoBehaviour {
 		}
 		pos += Velocity * Time.deltaTime;
 		transform.position = pos;
+		Vector3 cpos=cam.transform.position;
+		if((rightFlag||airRight)&&pos.x>cpos.x)
+		{
+			cpos.x=pos.x;
+			cam.transform.position=cpos;
+		}
 	}
 	void OnTriggerEnter(Collider col)
 	{

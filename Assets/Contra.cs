@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class Contra : MonoBehaviour {
 
-	public GameObject GroundPrefab;
 	public GameObject PlayerPrefab;
+	public GameObject GroundPrefab;
+	public GameObject BridgePrefab;
 
 	// Use this for initialization
 	void Start () {
@@ -66,6 +67,52 @@ public class Contra : MonoBehaviour {
 			Vector3 pos = Vector3.zero;
 			pos.x = (2.6f * i) + -11+(20*2.6f);
 			pos.y = -1f;
+			ground.transform.position = pos;
+		}
+		// First Bridge
+		for(int i = 0; i < 4; ++i) {
+			GameObject bridge = Instantiate (BridgePrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(23*2.6f);
+			pos.y = 5f;
+			bridge.transform.position = pos;
+		}
+		// Middle Ground
+		for(int i = 0; i < 5; ++i) {
+			GameObject bridge = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(27*2.6f);
+			pos.y = 5f;
+			bridge.transform.position = pos;
+		}
+		// Next Bridge
+		for(int i = 0; i < 4; ++i) {
+			GameObject bridge = Instantiate (BridgePrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(32*2.6f);
+			pos.y = 5f;
+			bridge.transform.position = pos;
+		}
+		// Next Ground
+		for(int i = 0; i < 8; ++i) {
+			GameObject bridge = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(36*2.6f);
+			pos.y = 5f;
+			bridge.transform.position = pos;
+		}
+		for(int i = 0; i < 16; ++i) {
+			GameObject bridge = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(42*2.6f);
+			pos.y = 8f;
+			bridge.transform.position = pos;
+		}
+		for(int i = 0; i < 3; ++i) {
+			GameObject ground = Instantiate (GroundPrefab) as GameObject;
+			Vector3 pos = Vector3.zero;
+			pos.x = (2.6f * i) + -11+(43*2.6f);
+			pos.y = -4f;
 			ground.transform.position = pos;
 		}
 	}
