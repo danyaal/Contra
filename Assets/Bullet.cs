@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		cont= Camera.main.GetComponent<Contra>();
+		// cont= Camera.main.GetComponent<Contra>();
 	}
 	
 	// Update is called once per frame

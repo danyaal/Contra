@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
-	public float		Gravity	=	10.81f;
-	public float 		walkSpeed= 1.5f;
+	public float		Gravity	=	9.81f;
+	public float 		walkSpeed= 0.5f;
 
 	//flags all over this bitch
 
@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
 	public bool 		airRight=false;
 	public int 			collidingWith=0;
 	public Camera cam=		Camera.main;
+
 	// Use this for initialization
 	void Start () {
 		floating = true;

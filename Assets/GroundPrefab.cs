@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Floor : MonoBehaviour {
-
-	public bool collidablep1;
-	public bool collidablep2;
-
+public class GroundPrefab : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+	
 	}
 	
 	// Update is called once per frame
