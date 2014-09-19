@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour {
 	Vector3 VelocityAxis;
 	bool playerOwned;
 	bool released=false;
-	public float Speed = 3f;
+	public float Speed = 6f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +19,11 @@ public class Bullet : MonoBehaviour {
 				Vector3 pos = transform.position;
 				pos += VelocityAxis * Speed*Time.deltaTime;
 				transform.position=pos;
-			// if(Camera.main.WorldToScreenPoint(pos).y<-1)
+			if(Camera.main.WorldToViewportPoint(pos).x<0f||
+			   Camera.main.WorldToViewportPoint(pos).y<0f||
+			   Camera.main.WorldToViewportPoint(pos).x>1f||
+			   Camera.main.WorldToViewportPoint(pos).y>1f){
+				Destroy(this.gameObject);}
 		}
 
 	}
@@ -30,5 +34,9 @@ public class Bullet : MonoBehaviour {
 			playerOwned = po;
 			released = true;
 	}
+
+	public bool IsPlayer(){
+				return playerOwned;
+		}
 
 }

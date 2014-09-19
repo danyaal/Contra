@@ -16,7 +16,7 @@ public class ShootBaddie : MonoBehaviour {
 	public float ShotzMax=3f;
 	// Use this for initialization
 	void Start () {
-		p = GameObject.Find ("Player");
+
 		playerAlive = true;
 	}
 	
@@ -27,6 +27,7 @@ public class ShootBaddie : MonoBehaviour {
 
 	void FixedUpdate()
 	{
+		p = GameObject.FindGameObjectWithTag ("Player");
 		if (playerAlive) {
 						timePassed += Time.deltaTime;
 						if (timePassed >= timeBetweenBursts) {
@@ -61,7 +62,7 @@ public class ShootBaddie : MonoBehaviour {
 
 	public void ShitHesBack()
 	{
-		p = GameObject.Find ("Player");
+		p = GameObject.FindGameObjectWithTag ("Player");
 		playerAlive = true;
 		}
 	

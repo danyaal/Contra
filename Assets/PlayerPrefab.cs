@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
 	public float		Gravity	=	9.81f;
-	public float 		walkSpeed= 0.5f;
+	public float 		walkSpeed= 3f;
 
 	//flags all over this bitch
 
@@ -21,11 +21,15 @@ public class PlayerPrefab : MonoBehaviour {
 	public bool			airLeft = false;
 	public bool 		airRight=false;
 	public int 			collidingWith=0;
-	public Camera cam=		Camera.main;
+	public Camera 		cam;
+	Contra contraScript;
 
 	// Use this for initialization
 	void Start () {
 		floating = true;
+		cam = Camera.main;
+		contraScript = cam.GetComponent<Contra> ();
+		Velocity = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -164,28 +168,39 @@ public class PlayerPrefab : MonoBehaviour {
 		collidingWith++;
 		if (col.CompareTag ("Bullet")) {
 						Debug.Log ("BOOM");
+			Bullet bull;
+			bull=col.gameObject.GetComponent<Bullet>();
+			if(!bull.IsPlayer()){Destroy(col.gameObject);
+				contraScript.KillThePlayer();}
+				} else if (col.CompareTag ("Villan")) {
+						Debug.Log ("Bam");
+						contraScript.KillThePlayer();
+				} else {
+						if (Velocity.y < 0 && transform.position.y - transform.localScale.y > col.bounds.max.y && !forcefall) {
+								floating = false;
+								airLeft = false;
+								airRight = false;
+								Velocity.y = 0;
+								Vector3 pos = transform.position;
+								pos.y = col.bounds.max.y + transform.localScale.y + 0.5f;
+								transform.position = pos;
+						} else if (forcefall) {
+								forcefall = false;
+						}
 				}
-		if (Velocity.y < 0 && transform.position.y - transform.localScale.y > col.bounds.max.y&&!forcefall) {
-						floating = false;
-						airLeft = false;
-						airRight = false;
-						Velocity.y = 0;
-						Vector3 pos = transform.position;
-						pos.y = col.bounds.max.y + transform.localScale.y + 0.5f;
-						transform.position = pos;
-				} 
-		else if(forcefall){forcefall=false;}
 	}
 
 	void OnTriggerExit(Collider col)
 	{
-		collidingWith--;
+		if(!col.CompareTag("Bullet")){
+			collidingWith--;
 
 				if(collidingWith==0&&!crouchFlag) {
 						floating = true;
 						airLeft = leftFlag;
 						airRight = rightFlag;
-				}
+			}
+		}
 	}
 	void OnTriggerStay(Collider col)
 	{
