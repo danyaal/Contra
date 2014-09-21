@@ -23,6 +23,7 @@ public class PlayerPrefab : MonoBehaviour {
 	public bool			spindrive=false;
 	public bool			airLeft = false;
 	public bool 		airRight=false;
+	public bool 		lastSetLeft=false;
 	public int 			collidingWith=0;
 	public Camera 		cam;
 	Contra contraScript;
@@ -43,6 +44,7 @@ public class PlayerPrefab : MonoBehaviour {
 			if(!rightFlag) {
 				airRight=false;
 			}
+			lastSetLeft = true;
 
 			// Change direction of gun
 			Vector3 playerpos = GameObject.Find("PlayerPrefab").transform.position;
@@ -59,6 +61,7 @@ public class PlayerPrefab : MonoBehaviour {
 			if(!leftFlag) {
 				airLeft=false;
 			}
+			lastSetLeft = false;
 
 			// Change direction of gun
 			Vector3 playerpos = GameObject.Find("PlayerPrefab").transform.position;
@@ -92,7 +95,42 @@ public class PlayerPrefab : MonoBehaviour {
 
 		if(Input.GetKeyUp("s")) {
 			GameObject bullet = Instantiate(Bullet) as GameObject;
-			bullet.released(,true);
+			Vector3 vec = Vector3.zero;
+			// Figure out direction to send bullet
+			if(upFlag && 
+			   rightFlag) {
+				vec.x = 1;
+				vec.y = 1;
+			} else if(rightFlag && 
+			          downFlag) {
+				vec.x = 1;
+				vec.y = -1;
+			} else if(downFlag && 
+			          leftFlag) {
+				vec.x = -1;
+				vec.y = -1;
+			} else if(leftFlag && 
+			          upFlag) {
+				vec.x = -1;
+				vec.y = 1;
+			} else if(upFlag) {
+				vec.y = 1;
+			} else if(rightFlag) {
+				vec.x = 1;
+			} else if(downFlag &&
+			          floating) {
+				vec.y = -1;
+			}  else if(leftFlag) {
+				vec.x = -1;
+			} else {
+				if(lastSetLeft) {
+					vec.x = -1;
+				} else {
+					vec.x = 1;
+				}
+			}
+			Bullet bScript = bullet.GetComponent<Bullet>();
+			bScript.Release(vec, true);
 		}
 
 
