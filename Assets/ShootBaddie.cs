@@ -65,5 +65,16 @@ public class ShootBaddie : MonoBehaviour {
 		p = GameObject.FindGameObjectWithTag ("Player");
 		playerAlive = true;
 		}
+
+	public void OnTriggerEnter(Collider col)
+	{
+		if(col.CompareTag("Bullet")
+		   {
+			GameObject bgo=col.gameObject;
+			Bullet bill =bgo.GetComponent<Bullet>();
+			if(bill.IsPlayer())
+				Destroy(this.gameObject);
+		}
+		}
 	
 }
