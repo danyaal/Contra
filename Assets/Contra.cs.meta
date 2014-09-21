@@ -3,9 +3,11 @@ guid: 06edec3c76f48f64ead912d633d135cd
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
+  - thePlayer: {instanceID: 0}
   - PlayerPrefab: {fileID: 100000, guid: b3fc697b9ddfb514d97a159ba267c08c, type: 2}
   - GroundPrefab: {fileID: 100000, guid: 8c3309340a0454a969ad681b469877b7, type: 2}
   - BridgePrefab: {fileID: 100000, guid: b42eddb149f004e79940581fa7702bca, type: 2}
+  - ShootBaddie: {fileID: 100000, guid: eef1c39b46938034480954a8026c2eda, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

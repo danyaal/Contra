@@ -12,6 +12,7 @@ public class Contra : MonoBehaviour {
 	public GameObject PlayerPrefab;
 	public GameObject GroundPrefab;
 	public GameObject BridgePrefab;
+	public GameObject ShootBaddie;
 
 	// Use this for initialization
 	void Start () {
@@ -311,6 +312,13 @@ public class Contra : MonoBehaviour {
 						pos.y = -3f;
 						ground.transform.position = pos;
 				}
+
+			GameObject baddie = Instantiate (ShootBaddie) as GameObject;
+			Vector3 pop = GameObject.Find ("PlayerPrefab").transform.position;
+			pop.x = pop.x+10f;
+			baddie.transform.position = pop;
+
+			// TODO: SPAWN BADDIES
 		}
 	}
 	

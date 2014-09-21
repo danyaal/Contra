@@ -6,6 +6,8 @@ public class PlayerPrefab : MonoBehaviour {
 	public float		Gravity	=	9.81f;
 	public float 		walkSpeed= 3f;
 
+	public GameObject Bullet;
+
 	//flags all over this bitch
 
 	public bool			leftFlag=false; 
@@ -14,6 +16,7 @@ public class PlayerPrefab : MonoBehaviour {
 	public bool			downFlag = false;
 	public int 			facing =1;
 	public bool 		forcefall = false;
+	public bool			shootFlag = false;
 
 	public bool			crouchFlag = false;
 	public bool 		floating = false;
@@ -37,20 +40,46 @@ public class PlayerPrefab : MonoBehaviour {
 		if (Input.GetKeyDown ("left")) {
 			leftFlag=true;
 			airLeft=true;
-			if(!rightFlag)
-			{airRight=false;}
+			if(!rightFlag) {
+				airRight=false;
+			}
+
+			// Change direction of gun
+			Vector3 playerpos = GameObject.Find("PlayerPrefab").transform.position;
+			Vector3 pos = GameObject.Find("Gun").transform.position;
+			pos.x = playerpos.x - System.Math.Abs(pos.x - playerpos.x);
+			GameObject.Find("Gun").transform.position = pos;
+			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			rot.z = System.Math.Abs (rot.z) * -1;
+			GameObject.Find("Gun").transform.rotation = rot;
 		}
 		if (Input.GetKeyDown("right")){
 			rightFlag=true;
 			airRight=true;
-			if(!leftFlag)
-			{airLeft=false;}
+			if(!leftFlag) {
+				airLeft=false;
+			}
+
+			// Change direction of gun
+			Vector3 playerpos = GameObject.Find("PlayerPrefab").transform.position;
+			Vector3 pos = GameObject.Find("Gun").transform.position;
+			pos.x = System.Math.Abs(pos.x - playerpos.x) + playerpos.x;
+			GameObject.Find("Gun").transform.position = pos;
+			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			rot.z = System.Math.Abs(rot.z);
+			GameObject.Find("Gun").transform.rotation = rot;
 		}
 		if (Input.GetKeyDown("up")){
 			upFlag=true;
+			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			rot.z = 0;
+			GameObject.Find("Gun").transform.rotation = rot;
 		}
 		if (Input.GetKeyDown("down")){
 			downFlag=true;
+			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			rot.z = 270;
+			GameObject.Find("Gun").transform.rotation = rot;
 		}
 
 		if (Input.GetKeyDown("a")&& !floating){
@@ -59,6 +88,11 @@ public class PlayerPrefab : MonoBehaviour {
 				forcefall=true;}
 			else
 			{spindrive=true;}
+		}
+
+		if(Input.GetKeyUp("s")) {
+			GameObject bullet = Instantiate(Bullet) as GameObject;
+			bullet.released(,true);
 		}
 
 
