@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour {
 
 	public void Release(Vector3 axis, bool po)
 	{
-			VelocityAxis = axis;
+			VelocityAxis = axis.normalized;
 			playerOwned = po;
 			released = true;
 	}

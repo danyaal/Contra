@@ -23,6 +23,7 @@ public class PlayerPrefab : MonoBehaviour {
 	public bool			spindrive=false;
 	public bool			airLeft = false;
 	public bool 		airRight=false;
+	public bool 		InWater=false;
 	public int 			collidingWith=0;
 	public Camera 		cam;
 	Contra contraScript;
@@ -83,16 +84,18 @@ public class PlayerPrefab : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown("a")&& !floating){
-			if(crouchFlag)
-			{floating=true;
-				forcefall=true;}
-			else
-			{spindrive=true;}
+			if(!InWater){
+				if(crouchFlag)
+					{floating=true;
+					forcefall=true;}
+				else
+					{spindrive=true;}
+			}
 		}
 
 		if(Input.GetKeyUp("s")) {
 			GameObject bullet = Instantiate(Bullet) as GameObject;
-			bullet.released(,true);
+			//bullet.released(,true);
 		}
 
 
@@ -199,7 +202,7 @@ public class PlayerPrefab : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col)
 	{
-		collidingWith++;
+
 		if (col.CompareTag ("Bullet")) {
 						Debug.Log ("BOOM");
 			Bullet bull;
@@ -210,6 +213,28 @@ public class PlayerPrefab : MonoBehaviour {
 						Debug.Log ("Bam");
 						contraScript.KillThePlayer();
 				} else {
+			collidingWith++;
+						if(col.CompareTag("Water"))
+			   			{
+							floating = false;
+							airLeft = false;
+							airRight = false;
+							Velocity.y = 0;
+							Vector3 pos = transform.position;
+							pos.y = col.bounds.max.y + transform.localScale.y + 0.5f;
+							transform.position = pos;
+				InWater=true;
+						}
+						else if(InWater)
+			{
+				Vector3 pos = transform.position;
+				pos.y = col.bounds.max.y + transform.localScale.y + 0.5f;
+				if(facing==1)
+				{pos.x=col.bounds.min.x;}
+				else pos.x=col.bounds.max.x;
+				InWater=false;
+				transform.position = pos;
+			}
 						if (Velocity.y < 0 && transform.position.y - transform.localScale.y > col.bounds.max.y && !forcefall) {
 								floating = false;
 								airLeft = false;
@@ -226,7 +251,7 @@ public class PlayerPrefab : MonoBehaviour {
 
 	void OnTriggerExit(Collider col)
 	{
-		if(!col.CompareTag("Bullet")){
+		if(!col.CompareTag("Bullet")&&!col.CompareTag("Villan")){
 			collidingWith--;
 
 				if(collidingWith==0&&!crouchFlag) {
