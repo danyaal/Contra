@@ -343,10 +343,10 @@ public class Contra : MonoBehaviour {
 				water.transform.position = pos;
 			}
 
-			GameObject baddie = Instantiate (ShootBaddie) as GameObject;
-			Vector3 pop = GameObject.Find ("PlayerPrefab").transform.position;
-			pop.x = pop.x+10f;
-			baddie.transform.position = pop;
+//			GameObject baddie = Instantiate (ShootBaddie) as GameObject;
+//			Vector3 pop = GameObject.Find ("PlayerPrefab").transform.position;
+//			pop.x = pop.x+10f;
+//			baddie.transform.position = pop;
 
 			// TODO: SPAWN BADDIES
 		}
@@ -354,7 +354,10 @@ public class Contra : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Vector3 pos = GameObject.Find("PlayerPrefab").transform.position;
+		if(pos.x >= 249f) {
+			Application.LoadLevel("_2-2Intro");
+		}
 	}
 
 	public void KillThePlayer()
