@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour {
 		if (released) 
 		{
 			Vector3 pos = transform.position;
-			pos.x += Speed * Time.deltaTime;
+			pos += VelocityAxis * (Speed * Time.deltaTime);
 			transform.position = pos;
 			if(Camera.main.WorldToViewportPoint(pos).x<0f ||
 			   Camera.main.WorldToViewportPoint(pos).y<0f ||
