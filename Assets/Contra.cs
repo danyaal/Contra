@@ -415,6 +415,8 @@ public class Contra : MonoBehaviour {
 						Vector3 pos = pgo.transform.position;
 						if (pos.x >= 249f) {
 								Application.LoadLevel ("_2-2Intro");
+						} else if(pos.y <= 50f) {
+							KillThePlayer();
 						}
 				}
 	}
@@ -424,7 +426,7 @@ public class Contra : MonoBehaviour {
 		Destroy (thePlayer);
 		Lives--;
 		if (Lives <= 0) {
-			Debug.Log("xXxGaMeOvErXx");
+			Application.LoadLevel("_GameOver");
 			Application.Quit();}
 		//foreach(GameObject shot in shootersOnScreen)
 		thePlayer = Instantiate (PlayerPrefab) as GameObject;
