@@ -15,10 +15,15 @@ public class Contra : MonoBehaviour {
 	public GameObject ShootBaddie;
 	public GameObject WaterPrefab;
 
+	public GUIText livesGUI;
+
 	// Use this for initialization
 	void Start () {
 		thePlayer = GameObject.Find ("PlayerPrefab");
 		if (spawnMap) {
+			livesGUI = GameObject.Find("LivesLeft").GetComponent<GUIText>();
+			livesGUI.guiText.text = "Lives: ooo";
+
 			// Spawn Player
 			// GameObject ground = Instantiate (PlayerPrefab) as GameObject;
 			// First Ground area
@@ -415,6 +420,8 @@ public class Contra : MonoBehaviour {
 						Vector3 pos = pgo.transform.position;
 						if (pos.x >= 249f) {
 								Application.LoadLevel ("_2-2Intro");
+						} else if(pos.y <= 100f) {
+							KillThePlayer();
 						}
 				}
 	}
@@ -423,9 +430,10 @@ public class Contra : MonoBehaviour {
 	{
 		Destroy (thePlayer);
 		Lives--;
+		livesGUI.text = livesGUI.text.Substring(0, livesGUI.text.Length-1);
 		if (Lives <= 0) {
-			Debug.Log("xXxGaMeOvErXx");
-			Application.Quit();}
+			Application.LoadLevel("_GameOver");
+		}
 		//foreach(GameObject shot in shootersOnScreen)
 		thePlayer = Instantiate (PlayerPrefab) as GameObject;
 		Vector3 spawnpt = Vector3.zero;
