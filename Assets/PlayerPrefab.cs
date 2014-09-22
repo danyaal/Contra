@@ -163,7 +163,7 @@ public class PlayerPrefab : MonoBehaviour {
 	{
 		Vector3 pos = transform.position;
 		if (spindrive) {
-			Velocity.y=11f;
+			Velocity.y=15f;
 			floating=true;
 			spindrive=false;
 		}
