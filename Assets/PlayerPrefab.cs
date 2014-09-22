@@ -95,7 +95,7 @@ public class PlayerPrefab : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyUp("/")) {
+		if(Input.GetKeyDown("/")) {
 			GameObject bullet = Instantiate(Bullet) as GameObject;
 			bullet.transform.position=this.transform.position;
 			Vector3 vec = Vector3.zero;
@@ -171,8 +171,9 @@ public class PlayerPrefab : MonoBehaviour {
 			Velocity.y-=Gravity*2*Time.deltaTime;
 			if(crouchFlag)
 			{
-				pos.y+=1.7f;
-				transform.Rotate(Vector3.forward, 90f*facing);
+				if(!InWater)
+				{pos.y+=1.5f;
+					transform.Rotate(Vector3.forward, 90f*facing);}
 				crouchFlag=false;}
 			if(airRight){
 				Velocity.x=walkSpeed*1;
@@ -190,8 +191,9 @@ public class PlayerPrefab : MonoBehaviour {
 
 				if(crouchFlag)
 				{
-					pos.y+=1.7f;
-					transform.Rotate(Vector3.forward, 90f*facing);
+					if(!InWater)
+					{pos.y+=1.5f;
+						transform.Rotate(Vector3.forward, 90f*facing);}
 					crouchFlag=false;}
 				facing=1;
 			}
@@ -201,8 +203,9 @@ public class PlayerPrefab : MonoBehaviour {
 
 				if(crouchFlag)
 				{
-					pos.y+=1.7f;
-					transform.Rotate(Vector3.forward, 90f*facing);
+					if(!InWater){
+					pos.y+=1.5f;
+						transform.Rotate(Vector3.forward, 90f*facing);}
 					crouchFlag=false;
 					}
 				facing=-1;
@@ -212,13 +215,15 @@ public class PlayerPrefab : MonoBehaviour {
 				if(downFlag)
 				{
 					if(!crouchFlag){crouchFlag=true;
+						if(!InWater){
 					transform.Rotate (Vector3.forward, -90f*facing);
-						pos.y-=1.7f;}
+							pos.y-=1.5f;}}
 				}
 				else if(crouchFlag)
 				{
-					pos.y+=1.7f;
-					transform.Rotate(Vector3.forward, 90f*facing);
+						if(!InWater)
+						{pos.y+=1.5f;
+							transform.Rotate(Vector3.forward, 90f*facing);}
 					crouchFlag=false;
 					}
 				Velocity.x=0;
@@ -226,8 +231,9 @@ public class PlayerPrefab : MonoBehaviour {
 		}
 		if(!downFlag&&crouchFlag)
 		{
-			pos.y+=1.7f;
-			transform.Rotate(Vector3.forward, 90f*facing);
+			if(!InWater)
+			{pos.y+=1.5f;
+				transform.Rotate(Vector3.forward, 90f*facing);}
 			crouchFlag=false;
 			}
 
@@ -245,7 +251,7 @@ public class PlayerPrefab : MonoBehaviour {
 						Debug.Log ("BOOM");
 			Bullet bull;
 			bull=col.gameObject.GetComponent<Bullet>();
-			if(!bull.IsPlayer()){Destroy(col.gameObject);
+			if(!bull.IsPlayer()&&(!crouchFlag||!InWater)){Destroy(col.gameObject);
 				contraScript.KillThePlayer();}
 				} else if (col.CompareTag ("Villan")) {
 						Debug.Log ("Bam");
@@ -259,7 +265,7 @@ public class PlayerPrefab : MonoBehaviour {
 							airRight = false;
 							Velocity.y = 0;
 							Vector3 pos = transform.position;
-							pos.y = col.bounds.max.y + transform.localScale.y + 0.5f;
+							pos.y = col.bounds.max.y + transform.localScale.y + 0.2f;
 							transform.position = pos;
 				InWater=true;
 						}
