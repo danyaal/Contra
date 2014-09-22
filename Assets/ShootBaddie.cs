@@ -56,7 +56,7 @@ public class ShootBaddie : MonoBehaviour {
 
 		Bullet bScript = bullet.GetComponent<Bullet> ();
 		Vector3 ax = p.transform.position - bullet.transform.position;
-		bScript.Release (ax.normalized, false);
+		bScript.Release (ax, false);
 
 	}
 

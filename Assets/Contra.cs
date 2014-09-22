@@ -410,10 +410,13 @@ public class Contra : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 pos = GameObject.Find("PlayerPrefab").transform.position;
-		if(pos.x >= 249f) {
-			Application.LoadLevel("_2-2Intro");
-		}
+		GameObject pgo = GameObject.Find ("PlayerPrefab");
+		if (pgo) {
+						Vector3 pos = pgo.transform.position;
+						if (pos.x >= 249f) {
+								Application.LoadLevel ("_2-2Intro");
+						}
+				}
 	}
 
 	public void KillThePlayer()

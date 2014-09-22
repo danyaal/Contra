@@ -39,7 +39,7 @@ public class PlayerPrefab : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("left")) {
+		if (Input.GetKeyDown ("a")) {
 			leftFlag=true;
 			airLeft=true;
 			if(!rightFlag) {
@@ -48,15 +48,15 @@ public class PlayerPrefab : MonoBehaviour {
 			lastSetLeft = true;
 
 			// Change direction of gun
-			Vector3 playerpos = GameObject.Find("PlayerPrefab").transform.position;
+			Vector3 playerpos = this.transform.position;
 			Vector3 pos = GameObject.Find("Gun").transform.position;
 			pos.x = playerpos.x - System.Math.Abs(pos.x - playerpos.x);
 			GameObject.Find("Gun").transform.position = pos;
-			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			/*Quaternion rot = GameObject.Find("Gun").transform.rotation;
 			rot.z = System.Math.Abs (rot.z) * -1;
-			GameObject.Find("Gun").transform.rotation = rot;
+			GameObject.Find("Gun").transform.rotation = rot;*/
 		}
-		if (Input.GetKeyDown("right")){
+		if (Input.GetKeyDown("d")){
 			rightFlag=true;
 			airRight=true;
 			if(!leftFlag) {
@@ -65,28 +65,27 @@ public class PlayerPrefab : MonoBehaviour {
 			lastSetLeft = false;
 
 			// Change direction of gun
-			Vector3 playerpos = GameObject.Find("PlayerPrefab").transform.position;
+			Vector3 playerpos = this.transform.position;
 			Vector3 pos = GameObject.Find("Gun").transform.position;
 			pos.x = System.Math.Abs(pos.x - playerpos.x) + playerpos.x;
 			GameObject.Find("Gun").transform.position = pos;
-			Quaternion rot = GameObject.Find("Gun").transform.rotation;
-			rot.z = System.Math.Abs(rot.z);
-			GameObject.Find("Gun").transform.rotation = rot;
+			/*m.Math.Abs(rot.z);
+			GameObject.Find("Gun").transform.rotation = rot;*/
 		}
-		if (Input.GetKeyDown("up")){
+		if (Input.GetKeyDown("w")){
 			upFlag=true;
-			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			/*Quaternion rot = GameObject.Find("Gun").transform.rotation;
 			rot.z = 0;
-			GameObject.Find("Gun").transform.rotation = rot;
+			GameObject.Find("Gun").transform.rotation = rot;*/
 		}
-		if (Input.GetKeyDown("down")){
+		if (Input.GetKeyDown("s")){
 			downFlag=true;
-			Quaternion rot = GameObject.Find("Gun").transform.rotation;
+			/*Quaternion rot = GameObject.Find("Gun").transform.rotation;
 			rot.z = 270;
-			GameObject.Find("Gun").transform.rotation = rot;
+			GameObject.Find("Gun").transform.rotation = rot;*/
 		}
 
-		if (Input.GetKeyDown("a")&& !floating){
+		if (Input.GetKeyDown(".")&& !floating){
 			if(!InWater){
 				if(crouchFlag)
 					{floating=true;
@@ -96,8 +95,9 @@ public class PlayerPrefab : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyUp("s")) {
+		if(Input.GetKeyUp("/")) {
 			GameObject bullet = Instantiate(Bullet) as GameObject;
+			bullet.transform.position=this.transform.position;
 			Vector3 vec = Vector3.zero;
 			// Figure out direction to send bullet
 			if(upFlag && 
@@ -139,21 +139,21 @@ public class PlayerPrefab : MonoBehaviour {
 
 
 
-		if (Input.GetKeyUp ("left")) {
+		if (Input.GetKeyUp ("a")) {
 			leftFlag=false;
 			if(airRight|| !floating){
 				airLeft=false;
 			}
 		}
-		if (Input.GetKeyUp("right")){
+		if (Input.GetKeyUp("d")){
 			rightFlag=false;
 			if(leftFlag|| !floating)
 			{airRight=false;}
 		}
-		if (Input.GetKeyUp("up")){
+		if (Input.GetKeyUp("w")){
 			upFlag=false;
 		}
-		if (Input.GetKeyUp("down")){
+		if (Input.GetKeyUp("s")){
 			downFlag=false;
 		}
 
@@ -171,7 +171,7 @@ public class PlayerPrefab : MonoBehaviour {
 			Velocity.y-=Gravity*2*Time.deltaTime;
 			if(crouchFlag)
 			{
-				pos.y+=1.3f;
+				pos.y+=1.7f;
 				transform.Rotate(Vector3.forward, 90f*facing);
 				crouchFlag=false;}
 			if(airRight){
@@ -190,7 +190,7 @@ public class PlayerPrefab : MonoBehaviour {
 
 				if(crouchFlag)
 				{
-					pos.y+=1.3f;
+					pos.y+=1.7f;
 					transform.Rotate(Vector3.forward, 90f*facing);
 					crouchFlag=false;}
 				facing=1;
@@ -201,7 +201,7 @@ public class PlayerPrefab : MonoBehaviour {
 
 				if(crouchFlag)
 				{
-					pos.y+=1.3f;
+					pos.y+=1.7f;
 					transform.Rotate(Vector3.forward, 90f*facing);
 					crouchFlag=false;
 					}
@@ -213,11 +213,11 @@ public class PlayerPrefab : MonoBehaviour {
 				{
 					if(!crouchFlag){crouchFlag=true;
 					transform.Rotate (Vector3.forward, -90f*facing);
-						pos.y-=1.3f;}
+						pos.y-=1.7f;}
 				}
 				else if(crouchFlag)
 				{
-					pos.y+=1.3f;
+					pos.y+=1.7f;
 					transform.Rotate(Vector3.forward, 90f*facing);
 					crouchFlag=false;
 					}
@@ -226,7 +226,7 @@ public class PlayerPrefab : MonoBehaviour {
 		}
 		if(!downFlag&&crouchFlag)
 		{
-			pos.y+=1.3f;
+			pos.y+=1.7f;
 			transform.Rotate(Vector3.forward, 90f*facing);
 			crouchFlag=false;
 			}

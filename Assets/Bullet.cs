@@ -10,9 +10,9 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// cont= Camera.main.GetComponent<Contra>();
-		Vector3 pos = GameObject.Find ("Gun").transform.position;
-		pos.x = pos.x+1.1f;
-		this.transform.position = pos;
+		//Vector3 pos = GameObject.Find ("Gun").transform.position;
+		//pos.x = pos.x+1.1f;
+		//this.transform.position = pos;
 	}
 	
 	// Update is called once per frame
