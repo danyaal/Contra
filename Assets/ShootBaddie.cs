@@ -68,13 +68,12 @@ public class ShootBaddie : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider col)
 	{
-		if(col.CompareTag("Bullet")
-		   {
+		if(col.CompareTag("Bullet")) {
 			GameObject bgo=col.gameObject;
 			Bullet bill =bgo.GetComponent<Bullet>();
-			if(bill.IsPlayer())
+			if(bill.IsPlayer()) {
 				Destroy(this.gameObject);
+			}
 		}
-		}
-	
+	}
 }
