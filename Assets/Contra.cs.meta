@@ -9,6 +9,8 @@ MonoImporter:
   - BridgePrefab: {fileID: 100000, guid: b42eddb149f004e79940581fa7702bca, type: 2}
   - ShootBaddie: {fileID: 100000, guid: eef1c39b46938034480954a8026c2eda, type: 2}
   - WaterPrefab: {fileID: 100000, guid: 291eb7a7c98c3424c89c587abbefbdf9, type: 2}
+  - TurretPrefab: {fileID: 100000, guid: cf23a0489e8794de0ac1d1fc1de01092, type: 2}
+  - livesGUI: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
