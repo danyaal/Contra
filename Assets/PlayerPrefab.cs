@@ -246,7 +246,7 @@ public class PlayerPrefab : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col)
 	{
-
+		if(!col.CompareTag("Jump")){
 		if (col.CompareTag ("Bullet")) {
 						Debug.Log ("BOOM");
 			Bullet bull;
@@ -291,6 +291,8 @@ public class PlayerPrefab : MonoBehaviour {
 								forcefall = false;
 						}
 				}
+		}
+		else Debug.Log("lol");
 	}
 
 	void OnTriggerExit(Collider col)

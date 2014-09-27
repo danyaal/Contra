@@ -20,16 +20,19 @@ public class baseTurret : MonoBehaviour {
 	void FixedUpdate(){
 
 		timePassed += Time.deltaTime;
-		if (timePassed <= 4) {
-			FireAway();		
+		if (timePassed >= 0.8) {
+			FireAway();	
+			timePassed=0;
 		}
 	
 	}
 
 	void FireAway(){
 
-		float speed=2f+Mathf.Floor(Random.value*4);
-		Bullet Bill = gravityBullet.GetComponent<Bullet> ();
+		float speed=2f+Mathf.Floor(Random.value*4)*2;
+		GameObject bgo = Instantiate (gravityBullet) as GameObject;
+		bgo.transform.position=this.transform.position;
+		Bullet Bill = bgo.GetComponent<Bullet> ();
 		Bill.GravityRelease (speed);
 
 	}
@@ -39,6 +42,7 @@ public class baseTurret : MonoBehaviour {
 		if(col.CompareTag("Bullet")) {
 			GameObject bgo=col.gameObject;
 			Bullet bill =bgo.GetComponent<Bullet>();
+
 			if(bill.IsPlayer()) {
 				health--;
 				if(health==0)

@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour {
 			{
 				Vector3 acc=Vector3.zero;
 				acc.y=Gravity;
-				Velocity+=Gravity*Time.deltaTime;
+				Velocity+=acc*Time.deltaTime;
 			}
 
 			pos += Velocity* Time.deltaTime;
@@ -52,7 +52,7 @@ public class Bullet : MonoBehaviour {
 	{
 		Velocity = Vector3.zero;
 		SpeedInitial = iSpeed;
-		Velocity = -1*iSpeed;
+		Velocity.x = -1*iSpeed;
 		grav = true;
 		playerOwned = false;
 		released = true;
