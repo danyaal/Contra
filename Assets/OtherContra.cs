@@ -25,7 +25,7 @@ public class OtherContra : MonoBehaviour {
 			livesGUI = GameObject.Find("LivesLeft").GetComponent<GUIText>();
 			livesGUI.guiText.text = "Lives: ooo";
 			
-			for (int i = 0; i < 23; ++i) {
+			for (int i = 0; i < 200; ++i) {
 				GameObject ground = Instantiate (GroundPrefab) as GameObject;
 				Vector3 pos = Vector3.zero;
 				pos.x = (2.6f * i) + -11;
@@ -40,8 +40,8 @@ public class OtherContra : MonoBehaviour {
 		GameObject pgo = GameObject.Find ("PlayerPrefab");
 		if (pgo) {
 			Vector3 pos = pgo.transform.position;
-			if (pos.x >= 249f) {
-				Application.LoadLevel ("_2-2Intro");
+			if (pos.x >= 500f) {
+				Application.LoadLevel ("_1-1Intro");
 			} else if(pos.y <= -7f) {
 				KillThePlayer();
 			}
