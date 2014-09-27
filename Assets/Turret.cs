@@ -15,6 +15,7 @@ public class Turret : MonoBehaviour {
 	public float timeBetweenBursts=5f;
 	public float timeBetweenShots=.5f;
 	public float ShotzMax=3f;
+	public int hp = 3;
 
 	// Use this for initialization
 	void Start () {
@@ -101,7 +102,11 @@ public class Turret : MonoBehaviour {
 			GameObject bgo=col.gameObject;
 			Bullet bill =bgo.GetComponent<Bullet>();
 			if(bill.IsPlayer()) {
-				Destroy(this.gameObject);
+				hp = hp - 1;
+				Destroy(bgo);
+				if(hp <= 0) {
+					Destroy(this.gameObject);
+				}
 			}
 		}
 	}
