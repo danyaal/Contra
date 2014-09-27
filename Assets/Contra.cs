@@ -14,6 +14,7 @@ public class Contra : MonoBehaviour {
 	public GameObject BridgePrefab;
 	public GameObject ShootBaddie;
 	public GameObject WaterPrefab;
+	public GameObject TurretPrefab;
 
 	public GUIText livesGUI;
 
@@ -369,42 +370,42 @@ public class Contra : MonoBehaviour {
 			pop.y = 1.003429f;
 			baddie4.transform.position = pop;
 
-			GameObject turret1 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret1 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 86.48366f;
 			pop.y = -0.1863329f;
 			turret1.transform.position = pop;
 
-			GameObject turret2 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret2 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 119.9455f;
 			pop.y = 0.5918849f;
 			turret2.transform.position = pop;
 
-			GameObject turret3 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret3 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 132.5756f;
 			pop.y = 0.5918849f;
 			turret3.transform.position = pop;
 
-			GameObject turret4 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret4 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 153.0279f;
 			pop.y = -0.7118565f;
 			turret4.transform.position = pop;
 
-			GameObject turret5 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret5 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 163.4579f;
 			pop.y = 10.044f;
 			turret5.transform.position = pop;
 
-			GameObject turret6 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret6 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 212.9445f;
 			pop.y = 5.072047f;
 			turret6.transform.position = pop;
 
-			GameObject turret7 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret7 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 231.4367f;
 			pop.y = -4.982932f;
 			turret7.transform.position = pop;
 
-			GameObject turret8 = Instantiate (ShootBaddie) as GameObject;
+			GameObject turret8 = Instantiate (TurretPrefab) as GameObject;
 			pop.x = 241.7148f;
 			pop.y = -4.982932f;
 			turret8.transform.position = pop;
@@ -420,7 +421,7 @@ public class Contra : MonoBehaviour {
 						Vector3 pos = pgo.transform.position;
 						if (pos.x >= 249f) {
 								Application.LoadLevel ("_2-2Intro");
-						} else if(pos.y <= 100f) {
+						} else if(pos.y <= -7f) {
 							KillThePlayer();
 						}
 				}
