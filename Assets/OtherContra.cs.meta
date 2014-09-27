@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: bb2428bedad71443ab8d3e1128df3f96
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - thePlayer: {fileID: 100000, guid: b3fc697b9ddfb514d97a159ba267c08c, type: 2}
+  - PlayerPrefab: {instanceID: 0}
+  - GroundPrefab: {fileID: 100000, guid: 8c3309340a0454a969ad681b469877b7, type: 2}
+  - BridgePrefab: {fileID: 100000, guid: b42eddb149f004e79940581fa7702bca, type: 2}
+  - ShootBaddie: {fileID: 100000, guid: eef1c39b46938034480954a8026c2eda, type: 2}
+  - WaterPrefab: {fileID: 100000, guid: 291eb7a7c98c3424c89c587abbefbdf9, type: 2}
+  - TurretPrefab: {fileID: 100000, guid: cf23a0489e8794de0ac1d1fc1de01092, type: 2}
+  - livesGUI: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
