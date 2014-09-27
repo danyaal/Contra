@@ -61,5 +61,15 @@ public class Bullet : MonoBehaviour {
 	public bool IsPlayer(){
 				return playerOwned;
 		}
+	void OnTriggerEnter(Collider col)
+	{
+		if(col.CompareTag("Door"))
+		   {
+			GameObject dgo = col.gameObject;
+			BaseDoor bd=dgo.GetComponentInParent<BaseDoor>();
+			bd.health--;
+			Destroy(this.gameObject);
+		}
+	}
 
 }

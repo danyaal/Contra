@@ -12,11 +12,13 @@ public class BaseDoor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (health <= 0)
+						Destroy (this.gameObject);
 	}
 
 	void onTriggerEnter(Collider col)
 	{
+		/*Debug.Log ("soup");
 			if(col.CompareTag("Bullet")) {
 				GameObject bgo=col.gameObject;
 				Bullet bill =bgo.GetComponent<Bullet>();
@@ -25,7 +27,8 @@ public class BaseDoor : MonoBehaviour {
 				if(health==0)
 					Destroy(this.gameObject);
 				Destroy(bgo);
+
 				}
-			}
+			}*/
 }
 }

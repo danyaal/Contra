@@ -73,6 +73,7 @@ public class ShootBaddie : MonoBehaviour {
 			Bullet bill =bgo.GetComponent<Bullet>();
 			if(bill.IsPlayer()) {
 				Destroy(this.gameObject);
+				Destroy(bgo);
 			}
 		}
 	}

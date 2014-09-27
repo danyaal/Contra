@@ -248,13 +248,11 @@ public class PlayerPrefab : MonoBehaviour {
 	{
 		if(!col.CompareTag("Jump")){
 		if (col.CompareTag ("Bullet")) {
-						Debug.Log ("BOOM");
 			Bullet bull;
 			bull=col.gameObject.GetComponent<Bullet>();
 			if(!bull.IsPlayer()&&(!crouchFlag||!InWater)){Destroy(col.gameObject);
 				contraScript.KillThePlayer();}
 				} else if (col.CompareTag ("Villan")) {
-						Debug.Log ("Bam");
 						contraScript.KillThePlayer();
 				} else {
 			collidingWith++;
@@ -292,7 +290,6 @@ public class PlayerPrefab : MonoBehaviour {
 						}
 				}
 		}
-		else Debug.Log("lol");
 	}
 
 	void OnTriggerExit(Collider col)

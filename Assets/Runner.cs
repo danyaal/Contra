@@ -44,6 +44,7 @@ public class Runner : MonoBehaviour {
 						Bullet bill = bgo.GetComponent<Bullet> ();
 						if (bill.IsPlayer ()) {
 								Destroy (this.gameObject);
+				Destroy(bgo);
 						}
 				} else if (!col.CompareTag ("Villan")) {
 			if(floating)
