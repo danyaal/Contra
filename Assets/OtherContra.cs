@@ -25,7 +25,13 @@ public class OtherContra : MonoBehaviour {
 			livesGUI = GameObject.Find("LivesLeft").GetComponent<GUIText>();
 			livesGUI.guiText.text = "Lives: ooo";
 			
-
+			for (int i = 0; i < 23; ++i) {
+				GameObject ground = Instantiate (GroundPrefab) as GameObject;
+				Vector3 pos = Vector3.zero;
+				pos.x = (2.6f * i) + -11;
+				pos.y = -7f;
+				ground.transform.position = pos;
+			}
 		}
 	}
 	
