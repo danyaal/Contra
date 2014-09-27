@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class Bullet : MonoBehaviour {
-	Vector3 VelocityAxis;
+	Vector3 Velocity;
 	bool playerOwned;
 	bool released=false;
-	public float Speed = 6f;
+	bool grav=false;
+	public float Gravity=-9.81f;
+	public float SpeedInitial = 6f;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +22,14 @@ public class Bullet : MonoBehaviour {
 		if (released) 
 		{
 			Vector3 pos = transform.position;
-			pos += VelocityAxis * (Speed * Time.deltaTime);
+			if(grav)
+			{
+				Vector3 acc=Vector3.zero;
+				acc.y=Gravity;
+				Velocity+=Gravity*Time.deltaTime;
+			}
+
+			pos += Velocity* Time.deltaTime;
 			transform.position = pos;
 			if(Camera.main.WorldToViewportPoint(pos).x<0f ||
 			   Camera.main.WorldToViewportPoint(pos).y<0f ||
@@ -34,10 +43,20 @@ public class Bullet : MonoBehaviour {
 
 	public void Release(Vector3 axis, bool po)
 	{
-			VelocityAxis = axis.normalized;
+			Velocity = axis.normalized*SpeedInitial;
 			playerOwned = po;
 			released = true;
 	}
+
+	public void GravityRelease(float iSpeed)
+	{
+		Velocity = Vector3.zero;
+		SpeedInitial = iSpeed;
+		Velocity = -1*iSpeed;
+		grav = true;
+		playerOwned = false;
+		released = true;
+		}
 
 	public bool IsPlayer(){
 				return playerOwned;
