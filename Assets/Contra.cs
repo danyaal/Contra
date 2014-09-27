@@ -15,6 +15,7 @@ public class Contra : MonoBehaviour {
 	public GameObject ShootBaddie;
 	public GameObject WaterPrefab;
 	public GameObject TurretPrefab;
+	public GameObject runBaddie;
 
 	public GUIText livesGUI;
 
@@ -409,6 +410,24 @@ public class Contra : MonoBehaviour {
 			pop.x = 241.7148f;
 			pop.y = -4.982932f;
 			turret8.transform.position = pop;
+
+			GameObject runner1 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 13.51886f;
+			pop.y = 7f;
+			runner1.transform.position = pop;
+
+			GameObject runner2 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 15.51886f;
+			pop.y = 7f;
+			runner2.transform.position = pop;
+
+			GameObject runner3 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 17.51886f;
+			pop.y = 7f;
+			runner3.transform.position = pop;
 
 			// TODO: SPAWN BADDIES
 		}
