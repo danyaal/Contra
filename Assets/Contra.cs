@@ -431,11 +431,41 @@ public class Contra : MonoBehaviour {
 			pop.y = 7f;
 			runner3.transform.position = pop;
 
+			GameObject runner4 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 64.39999f;
+			pop.y = 7f;
+			runner4.transform.position = pop;
+
+			GameObject runner5 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 67f;
+			pop.y = 7f;
+			runner5.transform.position = pop;
+
+			GameObject runner6 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 69.6f;
+			pop.y = 7f;
+			runner6.transform.position = pop;
+
+			GameObject runner7 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 116.4f;
+			pop.y = 10f;
+			runner7.transform.position = pop;
+
 			GameObject based = Instantiate (BaseDoor) as GameObject;
 			pop = Vector3.zero;
 			pop.x = 252f;
 			pop.y = -3f;
 			based.transform.position = pop;
+
+//			GameObject jp1 = Instantiate (jumpPoint) as GameObject;
+//			pop = Vector3.zero;
+//			pop.x = 7f;
+//			pop.y = 7f;
+//			jp1.transform.position = pop;
 
 			// TODO: SPAWN BADDIES
 		}
