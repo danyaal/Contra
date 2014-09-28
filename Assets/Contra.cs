@@ -469,13 +469,13 @@ public class Contra : MonoBehaviour {
 	void Update () {
 		GameObject pgo = GameObject.Find ("PlayerPrefab");
 		if (pgo) {
-						Vector3 pos = pgo.transform.position;
-						if (pos.x >= 249f) {
-								Application.LoadLevel ("_2-2Intro");
-						} else if(pos.y <= -7f) {
-							KillThePlayer();
-						}
-				}
+			Vector3 pos = pgo.transform.position;
+			if (pos.x >= 249f) {
+				Application.LoadLevel ("_2-2Intro");
+			} else if(pos.y <= -7f) {
+				KillThePlayer();
+			}
+		}
 	}
 
 	public void KillThePlayer()

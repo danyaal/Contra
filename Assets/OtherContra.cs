@@ -42,10 +42,14 @@ public class OtherContra : MonoBehaviour {
 			Vector3 pos = pgo.transform.position;
 			if (pos.x >= 500f) {
 				Application.LoadLevel ("_1-1Intro");
-			} else if(pos.y <= -7f) {
+			}
+			if(pos.y <= -7f) {
 				KillThePlayer();
 			}
 		}
+		Vector3 camPos = Camera.main.transform.position;
+		camPos.x += 10f*Time.deltaTime;
+		Camera.main.transform.position = camPos;
 	}
 	
 	public void KillThePlayer()
