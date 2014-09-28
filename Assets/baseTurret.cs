@@ -45,9 +45,10 @@ public class baseTurret : MonoBehaviour {
 
 			if(bill.IsPlayer()) {
 				health--;
-				if(health==0)
+				if(health==0) {
 					Destroy(this.gameObject);
-				Destroy(bgo);
+					Destroy(bgo);
+				}
 			}
 		}
 	}

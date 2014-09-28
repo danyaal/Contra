@@ -48,7 +48,7 @@ public class OtherContra : MonoBehaviour {
 			}
 		}
 		Vector3 camPos = Camera.main.transform.position;
-		camPos.x += 10f*Time.deltaTime;
+		camPos.x += 5f*Time.deltaTime;
 		Camera.main.transform.position = camPos;
 	}
 	

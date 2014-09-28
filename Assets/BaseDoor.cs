@@ -12,8 +12,10 @@ public class BaseDoor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (health <= 0)
-						Destroy (this.gameObject);
+		if (health <= 0) {
+			Destroy (this.gameObject);
+			Application.LoadLevel ("_2-2Intro");
+		}
 	}
 
 	void onTriggerEnter(Collider col)

@@ -18,6 +18,7 @@ public class Contra : MonoBehaviour {
 	public GameObject runBaddie;
 	public GameObject jumpPoint;
 	public GameObject BaseDoor;
+	public GameObject baseTurret;
 
 	public GUIText livesGUI;
 
@@ -460,8 +461,7 @@ public class Contra : MonoBehaviour {
 			pop.x = 252f;
 			pop.y = -3f;
 			based.transform.position = pop;
-
-			// TODO: SPAWN BADDIES
+		
 		}
 	}
 	
@@ -470,9 +470,7 @@ public class Contra : MonoBehaviour {
 		GameObject pgo = GameObject.Find ("PlayerPrefab");
 		if (pgo) {
 			Vector3 pos = pgo.transform.position;
-			if (pos.x >= 249f) {
-				Application.LoadLevel ("_2-2Intro");
-			} else if(pos.y <= -7f) {
+			if(pos.y <= -7f) {
 				KillThePlayer();
 			}
 		}
