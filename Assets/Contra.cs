@@ -16,6 +16,7 @@ public class Contra : MonoBehaviour {
 	public GameObject WaterPrefab;
 	public GameObject TurretPrefab;
 	public GameObject runBaddie;
+	public GameObject jumpPoint;
 
 	public GUIText livesGUI;
 

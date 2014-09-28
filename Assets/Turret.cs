@@ -15,7 +15,7 @@ public class Turret : MonoBehaviour {
 	public float timeBetweenBursts=5f;
 	public float timeBetweenShots=.5f;
 	public float ShotzMax=3f;
-	public int hp = 3;
+	public int hp = 6;
 
 	// Use this for initialization
 	void Start () {
