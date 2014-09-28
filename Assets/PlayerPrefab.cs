@@ -5,8 +5,10 @@ public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
 	public float		Gravity	=	9.81f;
 	public float 		walkSpeed= 3f;
+	public char gun ='q';
 
 	public GameObject Bullet;
+	public GameObject Blimp;
 
 	//flags all over this bitch
 
@@ -36,7 +38,22 @@ public class PlayerPrefab : MonoBehaviour {
 		contraScript = cam.GetComponent<Contra> ();
 		Velocity = Vector3.zero;
 	}
-	
+
+	void shoot(Vector3 axis)
+	{
+
+		//switch(gun)
+		//{
+
+		//case 'q':
+		//case 'r':
+			GameObject bullet = Instantiate(Bullet) as GameObject;
+			bullet.transform.position=this.transform.position;
+			Bullet bScript = bullet.GetComponent<Bullet>();
+			bScript.Release(axis, true);
+		//}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown ("a")) {
@@ -85,7 +102,7 @@ public class PlayerPrefab : MonoBehaviour {
 			GameObject.Find("Gun").transform.rotation = rot;*/
 		}
 
-		if (Input.GetKeyDown(".")&& !floating){
+		if (Input.GetKeyDown(",")&& !floating){
 			if(!InWater){
 				if(crouchFlag)
 					{floating=true;
@@ -95,9 +112,8 @@ public class PlayerPrefab : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyDown("/")) {
-			GameObject bullet = Instantiate(Bullet) as GameObject;
-			bullet.transform.position=this.transform.position;
+		if(Input.GetKeyDown(".")) {
+
 			Vector3 vec = Vector3.zero;
 			// Figure out direction to send bullet
 			if(upFlag && 
@@ -132,8 +148,7 @@ public class PlayerPrefab : MonoBehaviour {
 					vec.x = 1;
 				}
 			}
-			Bullet bScript = bullet.GetComponent<Bullet>();
-			bScript.Release(vec, true);
+			shoot (vec);
 		}
 
 
@@ -254,7 +269,32 @@ public class PlayerPrefab : MonoBehaviour {
 				contraScript.KillThePlayer();}
 				} else if (col.CompareTag ("Villan")) {
 						contraScript.KillThePlayer();
-				} else {
+				} else if(col.CompareTag("PowerupTrig"))
+			          {
+				Debug.Log ("here");
+				GameObject trig = col.gameObject;
+				BlimpSpawn bs = trig.GetComponent<BlimpSpawn>();
+				for(int i=0; i<bs.yViewportCoords.Count; i++)
+				{
+					Vector3 initPos=Vector3.zero;
+					Debug.Log (i);
+					initPos.y=(float)bs.yViewportCoords[i];
+					Debug.Log (initPos.y);
+					GameObject blimpy = Instantiate (Blimp) as GameObject;
+					Vector3 fun=Camera.main.ViewportToWorldPoint(initPos);
+					fun.z=0;
+					blimpy.transform.position=fun;
+					PowerUpBlimp pub= blimpy.GetComponent<PowerUpBlimp>();
+					pub.gun=(char)bs.types[i];
+					Debug.Log (pub.gun);
+					pub.yi=blimpy.transform.position.y;
+
+				}
+				Destroy(trig);
+			}
+
+
+			else {
 			collidingWith++;
 						if(col.CompareTag("Water"))
 			   			{
@@ -294,7 +334,7 @@ public class PlayerPrefab : MonoBehaviour {
 
 	void OnTriggerExit(Collider col)
 	{
-		if(!col.CompareTag("Bullet")&&!col.CompareTag("Villan")){
+		if(!col.CompareTag("Bullet")&&!col.CompareTag("Villan")&&!col.CompareTag("PowerupTrig")){
 			collidingWith--;
 
 				if(collidingWith==0&&!crouchFlag) {

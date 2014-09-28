@@ -6,7 +6,7 @@ public class baseTurret : MonoBehaviour {
 	public GameObject gravityBullet;
 	public float timeBetweenShots=0.5f;
 	float timePassed=0f;
-	int health = 7;
+	public int health = 7;
 	// Use this for initialization
 	void Start () {
 	
@@ -18,7 +18,9 @@ public class baseTurret : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-
+		if (health <= 0) {
+			Destroy(this.gameObject);
+		}
 		timePassed += Time.deltaTime;
 		if (timePassed >= 0.8) {
 			FireAway();	
@@ -37,7 +39,7 @@ public class baseTurret : MonoBehaviour {
 
 	}
 
-	void onTriggerEnter(Collider col)
+	/*void onTriggerEnter(Collider col)
 	{
 		if(col.CompareTag("Bullet")) {
 			GameObject bgo=col.gameObject;
@@ -50,6 +52,6 @@ public class baseTurret : MonoBehaviour {
 				Destroy(bgo);
 			}
 		}
-	}
+	}*/
 	
 }

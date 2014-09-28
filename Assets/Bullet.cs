@@ -63,10 +63,18 @@ public class Bullet : MonoBehaviour {
 		}
 	void OnTriggerEnter(Collider col)
 	{
-		if(col.CompareTag("Door"))
+		if(col.CompareTag("Door")&&playerOwned)
 		   {
 			GameObject dgo = col.gameObject;
 			BaseDoor bd=dgo.GetComponentInParent<BaseDoor>();
+			bd.health--;
+			Destroy(this.gameObject);
+		}
+
+		if(col.CompareTag("Turret")&&playerOwned)
+		{
+			GameObject dgo = col.gameObject;
+			baseTurret bd=dgo.GetComponentInParent<baseTurret>();
 			bd.health--;
 			Destroy(this.gameObject);
 		}
