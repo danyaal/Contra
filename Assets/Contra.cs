@@ -17,6 +17,7 @@ public class Contra : MonoBehaviour {
 	public GameObject TurretPrefab;
 	public GameObject runBaddie;
 	public GameObject jumpPoint;
+	public GameObject BaseDoor;
 
 	public GUIText livesGUI;
 
@@ -429,6 +430,12 @@ public class Contra : MonoBehaviour {
 			pop.x = 17.51886f;
 			pop.y = 7f;
 			runner3.transform.position = pop;
+
+			GameObject based = Instantiate (BaseDoor) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 252f;
+			pop.y = -3f;
+			based.transform.position = pop;
 
 			// TODO: SPAWN BADDIES
 		}
