@@ -461,12 +461,6 @@ public class Contra : MonoBehaviour {
 			pop.y = -3f;
 			based.transform.position = pop;
 
-//			GameObject jp1 = Instantiate (jumpPoint) as GameObject;
-//			pop = Vector3.zero;
-//			pop.x = 7f;
-//			pop.y = 7f;
-//			jp1.transform.position = pop;
-
 			// TODO: SPAWN BADDIES
 		}
 	}
