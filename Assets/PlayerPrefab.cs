@@ -366,9 +366,14 @@ public class PlayerPrefab : MonoBehaviour {
 			Bullet bull;
 			bull=col.gameObject.GetComponent<Bullet>();
 			if(!bull.IsPlayer()&&(!crouchFlag||!InWater)){Destroy(col.gameObject);
-				contraScript.KillThePlayer();}
+					if(contraScript){contraScript.KillThePlayer();}
+					else {OtherContra contsc= Camera.main.gameObject.GetComponent<OtherContra>();
+						contsc.KillThePlayer();}
+				}
 				} else if (col.CompareTag ("Villan")) {
-						contraScript.KillThePlayer();
+				if(contraScript){contraScript.KillThePlayer();}
+				else {OtherContra contsc= Camera.main.gameObject.GetComponent<OtherContra>();
+					contsc.KillThePlayer();}
 				} else if(col.CompareTag("PowerupTrig"))
 			          {
 				Debug.Log ("here");
