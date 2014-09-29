@@ -62,13 +62,14 @@ public class PlayerPrefab : MonoBehaviour {
 		Laser3 =Instantiate(Bullet) as GameObject;
 		Vector3 l1p = this.transform.position;
 		Vector3 l2p = this.transform.position;
-		l2p.x += axis.normalized.x * 0.04f;
+		l2p.x += axis.normalized.x * 0.08f;
 		
-		l2p.y += axis.normalized.y * 0.04f;
+		l2p.y += axis.normalized.y * 0.08f;
 		Vector3 l3p = this.transform.position;
-		l3p.x += axis.normalized.x * 0.08f;
+		l3p.x += axis.normalized.x * 0.16f;
 		
-		l3p.y += axis.normalized.y* 0.08f;
+		l3p.y += axis.normalized.y* 0.16f;
+		Laser1.transform.position = l1p;
 		Laser2.transform.position = l2p;
 		
 		Laser3.transform.position = l3p;
@@ -78,9 +79,9 @@ public class PlayerPrefab : MonoBehaviour {
 		Bullet bScript2 = Laser2.GetComponent<Bullet>();
 		
 		Bullet bScript3 = Laser3.GetComponent<Bullet>();
-		bScript1.Release(axis, true);
-		bScript2.Release(axis, true);
-		bScript3.Release(axis, true);
+		bScript1.Release(axis, true, laser:true);
+		bScript2.Release(axis, true, laser:true);
+		bScript3.Release(axis, true, laser:true);
 	}
 
 	void shoot(Vector3 axis)

@@ -41,11 +41,13 @@ public class Bullet : MonoBehaviour {
 
 	}
 
-	public void Release(Vector3 axis, bool po)
+	public void Release(Vector3 axis, bool po, bool laser=false)
 	{
 			Velocity = axis.normalized*SpeedInitial;
 			playerOwned = po;
 			released = true;
+			if (laser)
+						Velocity *= 0.5f;
 	}
 
 	public void GravityRelease(float iSpeed)
