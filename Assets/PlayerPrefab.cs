@@ -5,11 +5,15 @@ public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
 	public float		Gravity	=	9.81f;
 	public float 		walkSpeed= 3f;
-	public char gun ='s';
+	public char gun ='q';
 
 	public GameObject Bullet;
 	public GameObject Blimp;
-	public GameObject Laser;
+	public GameObject Laser1;
+	public GameObject Laser3;
+	public GameObject Laser2;
+	public GameObject SpinBullet;
+
 
 	//machineGun Flags
 	float timePassed=0;
@@ -43,6 +47,40 @@ public class PlayerPrefab : MonoBehaviour {
 		cam = Camera.main;
 		contraScript = cam.GetComponent<Contra> ();
 		Velocity = Vector3.zero;
+	}
+
+	void shootlas (Vector3 axis)
+	{
+		if (Laser1)
+						Destroy (Laser1);
+		if (Laser3)
+			Destroy (Laser3);
+		if (Laser2)
+			Destroy (Laser2);
+		Laser1 =Instantiate(Bullet) as GameObject;
+		Laser2 =Instantiate(Bullet) as GameObject;
+		Laser3 =Instantiate(Bullet) as GameObject;
+		Vector3 l1p = this.transform.position;
+		Vector3 l2p = this.transform.position;
+		l2p.x += axis.normalized.x * 0.04f;
+		
+		l2p.y += axis.normalized.y * 0.04f;
+		Vector3 l3p = this.transform.position;
+		l3p.x += axis.normalized.x * 0.08f;
+		
+		l3p.y += axis.normalized.y* 0.08f;
+		Laser2.transform.position = l2p;
+		
+		Laser3.transform.position = l3p;
+		
+		Bullet bScript1 = Laser1.GetComponent<Bullet>();
+		
+		Bullet bScript2 = Laser2.GetComponent<Bullet>();
+		
+		Bullet bScript3 = Laser3.GetComponent<Bullet>();
+		bScript1.Release(axis, true);
+		bScript2.Release(axis, true);
+		bScript3.Release(axis, true);
 	}
 
 	void shoot(Vector3 axis)
@@ -154,6 +192,8 @@ public class PlayerPrefab : MonoBehaviour {
 				spreadShoot(vec);
 			if((BulletsOnScreen<4&&gun=='q')||(BulletsOnScreen<5&&gun=='r'))
 				shoot (vec);
+			if(gun=='l')
+				shootlas(vec);
 		}
 
 		if (Input.GetKey (".") && gun == 'm') {
