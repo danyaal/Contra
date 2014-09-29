@@ -3,7 +3,10 @@ guid: 587c5b040cf0fcd4281660fa11ae8514
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - cam: {fileID: 2000000, guid: 926eda20e1c274a839aeca68575a20b2, type: 2}
+  - Bullet: {fileID: 100000, guid: 7f49e4667bf2fc14a9451396300688ec, type: 2}
+  - Blimp: {fileID: 100000, guid: 02e83b7b33db2a24e9cad7526ab10caa, type: 2}
+  - Laser: {instanceID: 0}
+  - cam: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
