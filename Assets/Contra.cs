@@ -481,6 +481,7 @@ public class Contra : MonoBehaviour {
 						timePassed += Time.deltaTime;
 		if (timePassed >= invulTime)
 						playerInvul = false;
+
 	}
 
 	public void KillThePlayer()

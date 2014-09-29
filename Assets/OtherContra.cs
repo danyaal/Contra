@@ -46,6 +46,10 @@ public class OtherContra : MonoBehaviour {
 			if(pos.y <= -7f) {
 				KillThePlayer();
 			}
+			Vector3 poop = Camera.main.transform.position;
+			if(poop.x-(6.330409*2) > pos.x) {
+				KillThePlayer();
+			}
 		}
 		Vector3 camPos = Camera.main.transform.position;
 		camPos.x += 5f*Time.deltaTime;
