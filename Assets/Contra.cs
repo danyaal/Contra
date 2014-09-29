@@ -16,6 +16,9 @@ public class Contra : MonoBehaviour {
 	public GameObject WaterPrefab;
 	public GameObject TurretPrefab;
 	public GameObject runBaddie;
+	public GameObject jumpPoint;
+	public GameObject BaseDoor;
+	public GameObject baseTurret;
 
 	public GUIText livesGUI;
 
@@ -429,7 +432,36 @@ public class Contra : MonoBehaviour {
 			pop.y = 7f;
 			runner3.transform.position = pop;
 
-			// TODO: SPAWN BADDIES
+			GameObject runner4 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 64.39999f;
+			pop.y = 7f;
+			runner4.transform.position = pop;
+
+			GameObject runner5 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 67f;
+			pop.y = 7f;
+			runner5.transform.position = pop;
+
+			GameObject runner6 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 69.6f;
+			pop.y = 7f;
+			runner6.transform.position = pop;
+
+			GameObject runner7 = Instantiate (runBaddie) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 116.4f;
+			pop.y = 10f;
+			runner7.transform.position = pop;
+
+			GameObject based = Instantiate (BaseDoor) as GameObject;
+			pop = Vector3.zero;
+			pop.x = 252f;
+			pop.y = -3f;
+			based.transform.position = pop;
+		
 		}
 	}
 	
@@ -437,13 +469,11 @@ public class Contra : MonoBehaviour {
 	void Update () {
 		GameObject pgo = GameObject.Find ("PlayerPrefab");
 		if (pgo) {
-						Vector3 pos = pgo.transform.position;
-						if (pos.x >= 249f) {
-								Application.LoadLevel ("_2-2Intro");
-						} else if(pos.y <= -7f) {
-							KillThePlayer();
-						}
-				}
+			Vector3 pos = pgo.transform.position;
+			if(pos.y <= -7f) {
+				KillThePlayer();
+			}
+		}
 	}
 
 	public void KillThePlayer()
