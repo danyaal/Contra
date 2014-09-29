@@ -5,7 +5,7 @@ public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
 	public float		Gravity	=	9.81f;
 	public float 		walkSpeed= 3f;
-	public char gun ='q';
+	public char gun ='s';
 
 	public GameObject Bullet;
 	public GameObject Blimp;
@@ -395,10 +395,94 @@ public class PlayerPrefab : MonoBehaviour {
 			}
 		}
 	}
-	void OnTriggerStay(Collider col)
+	void spreadShoot(Vector3 axis)
 	{
+		Vector3 axup1 = Vector3.zero;
+		Vector3 axup2 = Vector3.zero;
+		Vector3 axdown1 = Vector3.zero;
+		Vector3 axdown2 = Vector3.zero;
 
+		if (axis.x == 1 && axis.y == 1) {
+						axup1.y = Mathf.Sqrt (2);	
+						axup1.x = 1;
+						axup2.y = Mathf.Sin(Mathf.Deg2Rad*75);
+						axup2.x=Mathf.Cos (Mathf.Deg2Rad*75);
+						axdown2.x =Mathf.Cos (Mathf.Deg2Rad*15);
+			axdown2.y=Mathf.Sin (Mathf.Deg2Rad*15);
+						axdown1.x = Mathf.Sqrt (2);
+						axdown1.y = 1;
+				} else if (axis.x == -1 && axis.y == -1) {
+			axup1.x = -Mathf.Sqrt (2);	
+			axup1.y = -1;
+			axup2.x = Mathf.Cos(Mathf.Deg2Rad*195);
+			axup2.y = Mathf.Sin(Mathf.Deg2Rad*195);
+			axdown2.y = Mathf.Sin(Mathf.Deg2Rad*255);
+			axdown2.x = Mathf.Cos(Mathf.Deg2Rad*255);
+			axdown1.y = -Mathf.Sqrt (2);
+			axdown1.x = -1;
+		}else if (axis.x == -1 && axis.y == 1) {
+			axup1.y = Mathf.Sqrt (2);	
+			axup1.x = -1;
+			axup2.y = Mathf.Sin(Mathf.Deg2Rad*105);
+			axup2.x=Mathf.Cos(Mathf.Deg2Rad*105);
+			axdown2.x = Mathf.Cos(Mathf.Deg2Rad*165);
+			axdown2.y =Mathf.Sin(Mathf.Deg2Rad*165);
+			axdown1.x = -Mathf.Sqrt (2);
+			axdown1.y = 1;
+		}else if (axis.x == 1 && axis.y == -1) {
+			axup1.x = Mathf.Sqrt (2);	
+			axup1.y = -1;
+			axup2.x = Mathf.Cos(-Mathf.Deg2Rad*15);
+			axup2.y= Mathf.Sin(Mathf.Deg2Rad*-15);
+			axdown2.y = Mathf.Sin(Mathf.Deg2Rad*-75);
+			axdown2.x=Mathf.Cos(Mathf.Deg2Rad*-75);
+			axdown1.y = -Mathf.Sqrt (2);
+			axdown1.x = 1;
+		}else if (axis.x == -1) {
+			axup1.x = -Mathf.Sqrt (2);	
+			axup1.y = 1;
+			axup2.x = Mathf.Cos(Mathf.Deg2Rad*165);
+			axup2.y=Mathf.Sin(Mathf.Deg2Rad*165);
+			axdown2.y = Mathf.Sin(Mathf.Deg2Rad*205);;
+			axdown2.x=Mathf.Cos(Mathf.Deg2Rad*205);
+			axdown1.x = -Mathf.Sqrt (2);
+			axdown1.y = -1;
+		}else if (axis.y == -1) {
+			axup1.y = -Mathf.Sqrt (2);	
+			axup1.x = -1;
+			axup2.x = Mathf.Cos(Mathf.Deg2Rad*285);
+			axup2.y=Mathf.Sin(Mathf.Deg2Rad*285);
+			axdown2.y = Mathf.Sin(Mathf.Deg2Rad*255);
+			axdown2.x=Mathf.Cos(Mathf.Deg2Rad*255);
+			axdown1.y = -Mathf.Sqrt (2);
+			axdown1.x = 1;
+		}else if (axis.x == 1) {
+			axup1.x = Mathf.Sqrt (2);	
+			axup1.y = 1;
+			axup2.x = Mathf.Cos(Mathf.Deg2Rad*15);
+			axup2.y=Mathf.Sin(Mathf.Deg2Rad*15);
+			axdown2.y = Mathf.Sin(Mathf.Deg2Rad*-15);
+			axdown2.x=Mathf.Cos(Mathf.Deg2Rad*-15);
+			axdown1.x = Mathf.Sqrt (2);
+			axdown1.y = -1;
+		}else if (axis.y == 1) {
+			axup1.y = Mathf.Sqrt (2);	
+			axup1.x = -1;
+			axup2.x = Mathf.Cos(Mathf.Deg2Rad*75);
+			axup2.y=Mathf.Sin(Mathf.Deg2Rad*75);
+			axdown2.y = Mathf.Sin(Mathf.Deg2Rad*105);
+			axdown2.x=Mathf.Cos(Mathf.Deg2Rad*105);
+			axdown1.y = Mathf.Sqrt (2);
+			axdown1.x = 1;
+		}
+
+		shoot (axis);
+		shoot (axup1);
+		shoot (axup2);
+		shoot (axdown1);
+		shoot (axdown2);
+		
 	}
-
+	
 	
 }
