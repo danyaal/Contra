@@ -9,6 +9,12 @@ public class PlayerPrefab : MonoBehaviour {
 
 	public GameObject Bullet;
 	public GameObject Blimp;
+	public GameObject Laser;
+
+	//machineGun Flags
+	float timePassed=0;
+	public int BulletsOnScreen=0;
+	public float MachineGunRateOfFire=0.3f;
 
 	//flags all over this bitch
 
@@ -42,16 +48,12 @@ public class PlayerPrefab : MonoBehaviour {
 	void shoot(Vector3 axis)
 	{
 
-		//switch(gun)
-		//{
 
-		//case 'q':
-		//case 'r':
 			GameObject bullet = Instantiate(Bullet) as GameObject;
 			bullet.transform.position=this.transform.position;
-			Bullet bScript = bullet.GetComponent<Bullet>();
-			bScript.Release(axis, true);
-		//}
+		Bullet bScript = bullet.GetComponent<Bullet>();
+		BulletsOnScreen += 1;
+		bScript.Release(axis, true);
 	}
 
 	// Update is called once per frame
@@ -112,7 +114,7 @@ public class PlayerPrefab : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyDown(".")) {
+		if(Input.GetKeyDown(".")&&gun!='m') {
 
 			Vector3 vec = Vector3.zero;
 			// Figure out direction to send bullet
@@ -148,11 +150,58 @@ public class PlayerPrefab : MonoBehaviour {
 					vec.x = 1;
 				}
 			}
-			shoot (vec);
+			if((BulletsOnScreen<4&&gun=='q')||(BulletsOnScreen<5&&gun=='r'))
+				shoot (vec);
 		}
 
+		if (Input.GetKey (".") && gun == 'm') {
+			//MACHINE GUN FUNK
+			Vector3 vec = Vector3.zero;
+			// Figure out direction to send bullet
+			if(upFlag && 
+			   rightFlag) {
+				vec.x = 1;
+				vec.y = 1;
+			} else if(rightFlag && 
+			          downFlag) {
+				vec.x = 1;
+				vec.y = -1;
+			} else if(downFlag && 
+			          leftFlag) {
+				vec.x = -1;
+				vec.y = -1;
+			} else if(leftFlag && 
+			          upFlag) {
+				vec.x = -1;
+				vec.y = 1;
+			} else if(upFlag) {
+				vec.y = 1;
+			} else if(rightFlag) {
+				vec.x = 1;
+			} else if(downFlag &&
+			          floating) {
+				vec.y = -1;
+			}  else if(leftFlag) {
+				vec.x = -1;
+			} else {
+				if(lastSetLeft) {
+					vec.x = -1;
+				} else {
+					vec.x = 1;
+				}
+			}
+			if(timePassed==0||timePassed>=MachineGunRateOfFire)
+			{
+				shoot (vec);
+				timePassed=0;
+			}
+			timePassed+=Time.deltaTime;
+			
+				}
 
-
+		if (Input.GetKeyUp (".")) {
+			timePassed=0;
+			}
 
 		if (Input.GetKeyUp ("a")) {
 			leftFlag=false;

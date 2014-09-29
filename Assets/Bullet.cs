@@ -80,4 +80,17 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 
+	void OnDestroy()
+	{
+		if (playerOwned) {
+			GameObject playr=GameObject.Find("PlayerPrefab");
+			if(playr)
+			{
+				PlayerPrefab p=playr.GetComponent<PlayerPrefab>();
+				if(p.BulletsOnScreen!=0)
+					p.BulletsOnScreen--;
+			}
+				}
+		}
+
 }

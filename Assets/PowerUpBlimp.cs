@@ -8,9 +8,9 @@ public class PowerUpBlimp : MonoBehaviour {
 	public GameObject powerUp;
 
 	float t=0;
-	public float freq = 2;
+	public float freq = 4;
 	public float yi;
-	public float xSpeed=5f;
+	public float xSpeed=10f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,7 +24,7 @@ public class PowerUpBlimp : MonoBehaviour {
 	{
 		t += Time.deltaTime;
 		Vector3 pos = transform.position;
-		pos.y = yi + Mathf.Sin (2 * t);
+		pos.y = yi + Mathf.Sin (freq * t);
 		pos.x += xSpeed * Time.deltaTime;
 		transform.position = pos;
 		}

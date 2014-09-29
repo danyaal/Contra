@@ -6,6 +6,9 @@ using System.Collections.Generic;
 public class Contra : MonoBehaviour {
 	public GameObject thePlayer;
 	public bool spawnMap=true;
+	bool playerInvul=false;
+	float timePassed=0;
+	float invulTime=2f;
 	public int Lives = 3;
 	//ArrayList<GameObject> shootersOnScreen;
 
@@ -474,11 +477,18 @@ public class Contra : MonoBehaviour {
 				KillThePlayer();
 			}
 		}
+		if (playerInvul)
+						timePassed += Time.deltaTime;
+		if (timePassed >= invulTime)
+						playerInvul = false;
 	}
 
 	public void KillThePlayer()
 	{
+		if (playerInvul)
+						return;
 		Destroy (thePlayer);
+		playerInvul = true;
 		Lives--;
 		livesGUI.text = livesGUI.text.Substring(0, livesGUI.text.Length-1);
 		if (Lives <= 0) {
