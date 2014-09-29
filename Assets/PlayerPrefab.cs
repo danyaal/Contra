@@ -150,6 +150,8 @@ public class PlayerPrefab : MonoBehaviour {
 					vec.x = 1;
 				}
 			}
+			if((BulletsOnScreen<10&&gun=='s'))
+				spreadShoot(vec);
 			if((BulletsOnScreen<4&&gun=='q')||(BulletsOnScreen<5&&gun=='r'))
 				shoot (vec);
 		}
