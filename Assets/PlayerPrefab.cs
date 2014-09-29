@@ -29,6 +29,7 @@ public class PlayerPrefab : MonoBehaviour {
 	public int 			facing =1;
 	public bool 		forcefall = false;
 	public bool			shootFlag = false;
+	public bool 		wallFlag=false;
 
 	public bool			crouchFlag = false;
 	public bool 		floating = false;
@@ -283,7 +284,9 @@ public class PlayerPrefab : MonoBehaviour {
 					transform.Rotate(Vector3.forward, 90f*facing);}
 				crouchFlag=false;}
 			if(airRight){
-				Velocity.x=walkSpeed*1;
+				if(!wallFlag)
+					Velocity.x=walkSpeed*1;
+				else Velocity.x=0;
 				facing=1;
 			}
 			else if(airLeft){
@@ -294,7 +297,9 @@ public class PlayerPrefab : MonoBehaviour {
 		else {
 			if (rightFlag)
 			{
-				Velocity.x=walkSpeed*1;
+				if(!wallFlag)
+					Velocity.x=walkSpeed*1;
+				else Velocity.x=0;
 
 				if(crouchFlag)
 				{
@@ -343,7 +348,6 @@ public class PlayerPrefab : MonoBehaviour {
 				transform.Rotate(Vector3.forward, 90f*facing);}
 			crouchFlag=false;
 			}
-
 		pos += Velocity * Time.deltaTime;
 		transform.position = pos;
 		Vector3 cpos = cam.transform.position;
@@ -353,6 +357,10 @@ public class PlayerPrefab : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col)
 	{
+		if (col.CompareTag ("wall")) {
+			wallFlag=true;		
+		
+		}
 		if(!col.CompareTag("Jump")){
 		if (col.CompareTag ("Bullet")) {
 			Bullet bull;
@@ -426,6 +434,9 @@ public class PlayerPrefab : MonoBehaviour {
 
 	void OnTriggerExit(Collider col)
 	{
+		if (col.CompareTag ("wall"))
+						wallFlag = false;
+
 		if(!col.CompareTag("Bullet")&&!col.CompareTag("Villan")&&!col.CompareTag("PowerupTrig")){
 			collidingWith--;
 
