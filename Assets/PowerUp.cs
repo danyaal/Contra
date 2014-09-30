@@ -5,7 +5,7 @@ public class PowerUp : MonoBehaviour {
 
 	public char gun;
 	bool midAir=true;
-	public float Gravity=-9.81f;
+	public float Gravity=-2.81f;
 	Vector3 velocity;
 
 	// Use this for initialization

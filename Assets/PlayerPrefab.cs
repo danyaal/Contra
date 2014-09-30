@@ -379,6 +379,19 @@ public class PlayerPrefab : MonoBehaviour {
 				Debug.Log ("here");
 				GameObject trig = col.gameObject;
 				BlimpSpawn bs = trig.GetComponent<BlimpSpawn>();
+				if(bs.guiInstantiated)
+				{
+					Vector3 initPos=Vector3.zero;
+					initPos.y=bs.ycoord;
+					GameObject blimpy = Instantiate (Blimp) as GameObject;
+					Vector3 fun=Camera.main.ViewportToWorldPoint(initPos);
+					fun.z=0;
+					blimpy.transform.position=fun;
+					PowerUpBlimp pub= blimpy.GetComponent<PowerUpBlimp>();
+					pub.gun=bs.pch;
+					pub.yi=blimpy.transform.position.y;
+				}
+				else{
 				for(int i=0; i<bs.yViewportCoords.Count; i++)
 				{
 					Vector3 initPos=Vector3.zero;
@@ -394,7 +407,7 @@ public class PlayerPrefab : MonoBehaviour {
 					Debug.Log (pub.gun);
 					pub.yi=blimpy.transform.position.y;
 
-				}
+					}}
 				Destroy(trig);
 			}
 

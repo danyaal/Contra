@@ -3,13 +3,17 @@ guid: 06edec3c76f48f64ead912d633d135cd
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - thePlayer: {instanceID: 0}
-  - PlayerPrefab: {fileID: 100000, guid: b3fc697b9ddfb514d97a159ba267c08c, type: 2}
+  - thePlayer: {fileID: 100006, guid: 6cdd05a3e60da4da4851ebc7ce63fc02, type: 2}
+  - PlayerPrefab: {fileID: 100006, guid: 6cdd05a3e60da4da4851ebc7ce63fc02, type: 2}
   - GroundPrefab: {fileID: 100000, guid: 8c3309340a0454a969ad681b469877b7, type: 2}
   - BridgePrefab: {fileID: 100000, guid: b42eddb149f004e79940581fa7702bca, type: 2}
   - ShootBaddie: {fileID: 100000, guid: eef1c39b46938034480954a8026c2eda, type: 2}
   - WaterPrefab: {fileID: 100000, guid: 291eb7a7c98c3424c89c587abbefbdf9, type: 2}
   - TurretPrefab: {fileID: 100000, guid: cf23a0489e8794de0ac1d1fc1de01092, type: 2}
+  - runBaddie: {fileID: 100000, guid: 8e87989d60f410140bc718497df15697, type: 2}
+  - jumpPoint: {fileID: 100000, guid: 8a2825a1b8b8fcc4ba3d0ee16d905052, type: 2}
+  - BaseDoor: {fileID: 100000, guid: 72bb5f36be5c88846bc58eec62b17e8a, type: 2}
+  - baseTurret: {fileID: 100000, guid: d6a3b53a0d478f64fa49f0b207a0513f, type: 2}
   - livesGUI: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}

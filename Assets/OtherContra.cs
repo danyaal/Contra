@@ -20,7 +20,7 @@ public class OtherContra : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		thePlayer = GameObject.Find ("PlayerPrefab");
+		thePlayer = GameObject.Find ("PlayerPrefab2");
 		if (spawnMap) {
 			livesGUI = GameObject.Find("LivesLeft").GetComponent<GUIText>();
 			livesGUI.guiText.text = "Lives: ooo";
@@ -37,12 +37,9 @@ public class OtherContra : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject pgo = GameObject.Find ("PlayerPrefab");
+		GameObject pgo = GameObject.Find ("PlayerPrefab2");
 		if (pgo) {
 			Vector3 pos = pgo.transform.position;
-			if (pos.x >= 500f) {
-				Application.LoadLevel ("_1-1Intro");
-			}
 			if(pos.y <= -7f) {
 				KillThePlayer();
 			}
