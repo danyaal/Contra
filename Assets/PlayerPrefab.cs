@@ -357,6 +357,11 @@ public class PlayerPrefab : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider col)
 	{
+		if(col.CompareTag("bridgeBoom"))
+		{
+			bridgeBoom bb=col.gameObject.GetComponent<bridgeBoom>();
+			bb.boomed=true;
+		}
 		if (col.CompareTag ("wall")) {
 			wallFlag=true;		
 		

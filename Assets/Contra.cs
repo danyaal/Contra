@@ -22,6 +22,7 @@ public class Contra : MonoBehaviour {
 	public GameObject jumpPoint;
 	public GameObject BaseDoor;
 	public GameObject baseTurret;
+	public GameObject boomTrigger;
 
 	public GUIText livesGUI;
 
@@ -122,12 +123,23 @@ public class Contra : MonoBehaviour {
 				ground.transform.position = pos;
 			}
 			// First Bridge
+			GameObject boom1 = Instantiate (boomTrigger) as GameObject;
+			Vector3 posit = Vector3.zero;
+			posit.x = 46.93517f;
+			posit.y = 6.37596f;
+			boom1.transform.position = posit;
+			bridgeBoom bt= boom1.GetComponent<bridgeBoom>();
 			for (int i = 0; i < 4; ++i) {
 				GameObject bridge = Instantiate (BridgePrefab) as GameObject;
 				Vector3 pos = Vector3.zero;
 				pos.x = (2.6f * i) + -11 + (23 * 2.6f);
 				pos.y = 5f;
 				bridge.transform.position = pos;
+				if(bt.bridge1==null) bt.bridge1=bridge;
+				else if(bt.bridge2==null) bt.bridge2=bridge;
+				else if(bt.bridge3==null) bt.bridge3=bridge;
+				else if(bt.bridge4==null) bt.bridge4=bridge;
+
 			}
 			// Middle Ground
 			for (int i = 0; i < 5; ++i) {
@@ -138,12 +150,22 @@ public class Contra : MonoBehaviour {
 				bridge.transform.position = pos;
 			}
 			// Next Bridge
+			GameObject boom2 = Instantiate (boomTrigger) as GameObject;
+			posit = Vector3.zero;
+			posit.x = 70.34604f;
+			posit.y = 6.37596f;
+			boom2.transform.position = posit;
+			bridgeBoom bt2= boom2.GetComponent<bridgeBoom>();
 			for (int i = 0; i < 4; ++i) {
 				GameObject bridge = Instantiate (BridgePrefab) as GameObject;
 				Vector3 pos = Vector3.zero;
 				pos.x = (2.6f * i) + -11 + (32 * 2.6f);
 				pos.y = 5f;
 				bridge.transform.position = pos;
+				if(bt2.bridge1==null) bt2.bridge1=bridge;
+				else if(bt2.bridge2==null) bt2.bridge2=bridge;
+				else if(bt2.bridge3==null) bt2.bridge3=bridge;
+				else if(bt2.bridge4==null) bt2.bridge4=bridge;
 			}
 			// Next Ground
 			for (int i = 0; i < 8; ++i) {
