@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour {
 			playerOwned = po;
 			released = true;
 			if (laser)
-						Velocity *= 0.5f;
+						Velocity *= 0.8f;
 	}
 
 	public void GravityRelease(float iSpeed)
