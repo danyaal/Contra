@@ -471,11 +471,14 @@ public class Contra : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject pgo = GameObject.Find ("PlayerPrefab");
-		if (pgo) {
-			Vector3 pos = pgo.transform.position;
-			if(pos.y <= -7f) {
-				KillThePlayer();
+		GameObject playr=GameObject.FindGameObjectWithTag("PlayMain");
+		if(playr) {
+			PlayerPrefab pgo = playr.GetComponent<PlayerPrefab>();
+			if (pgo) {
+				Vector3 pos = pgo.transform.position;
+				if(pos.y <= -7f) {
+					KillThePlayer();
+				}
 			}
 		}
 		if (playerInvul)
