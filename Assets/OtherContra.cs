@@ -37,15 +37,18 @@ public class OtherContra : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		GameObject pgo = GameObject.Find ("PlayerPrefab2");
-		if (pgo) {
-			Vector3 pos = pgo.transform.position;
-			if(pos.y <= -7f) {
-				KillThePlayer();
-			}
-			Vector3 poop = Camera.main.transform.position;
-			if(poop.x-(6.330409*2) > pos.x) {
-				KillThePlayer();
+		GameObject playr=GameObject.FindGameObjectWithTag("PlayMain");
+		if(playr) {
+			PlayerPrefab pgo = playr.GetComponent<PlayerPrefab>();
+			if (pgo) {
+				Vector3 pos = pgo.transform.position;
+				if(pos.y <= -7f) {
+					KillThePlayer();
+				}
+				Vector3 poop = Camera.main.transform.position;
+				if(poop.x-(6.330409*2) > pos.x) {
+					KillThePlayer();
+				}
 			}
 		}
 		Vector3 camPos = Camera.main.transform.position;
