@@ -457,7 +457,7 @@ public class Contra : MonoBehaviour {
 			GameObject runner7 = Instantiate (runBaddie) as GameObject;
 			pop = Vector3.zero;
 			pop.x = 116.4f;
-			pop.y = 10f;
+			pop.y = 7f;
 			runner7.transform.position = pop;
 
 			GameObject based = Instantiate (BaseDoor) as GameObject;
