@@ -34,6 +34,36 @@ public class Contra : MonoBehaviour {
 
 			// Spawn Player
 			// GameObject ground = Instantiate (PlayerPrefab) as GameObject;
+
+			for (int i = 0; i < 9; ++i) {
+				GameObject water = Instantiate (WaterPrefab) as GameObject;
+				Vector3 pos = Vector3.zero;
+				pos.x = (2.6f * i) + -11;
+				pos.y = -7f;
+				water.transform.position = pos;
+			}
+			for (int i = 0; i < 8; ++i) {
+				GameObject water = Instantiate (WaterPrefab) as GameObject;
+				Vector3 pos = Vector3.zero;
+				pos.x = (2.6f * i) + -11 + (11 * 2.6f);
+				pos.y = -7f;
+				water.transform.position = pos;
+			}
+			for (int i = 0; i < 23; ++i) {
+				GameObject water = Instantiate (WaterPrefab) as GameObject;
+				Vector3 pos = Vector3.zero;
+				pos.x = (2.6f * i) + -11 + (21 * 2.6f);
+				pos.y = -7f;
+				water.transform.position = pos;
+			}
+			for (int i = 0; i < 7; ++i) {
+				GameObject water = Instantiate (WaterPrefab) as GameObject;
+				Vector3 pos = Vector3.zero;
+				pos.x = (2.6f * i) + -11 + (46 * 2.6f);
+				pos.y = -7f;
+				water.transform.position = pos;
+			}
+
 			// First Ground area
 			for (int i = 0; i < 23; ++i) {
 				GameObject ground = Instantiate (GroundPrefab) as GameObject;
@@ -253,7 +283,7 @@ public class Contra : MonoBehaviour {
 				GameObject ground = Instantiate (GroundPrefab) as GameObject;
 				Vector3 pos = Vector3.zero;
 				pos.x = (2.6f * i) + -11 + (79 * 2.6f);
-				pos.y = -3f;
+				pos.y = -2f;
 				ground.transform.position = pos;
 			}
 			for (int i = 0; i < 2; ++i) {
@@ -325,35 +355,6 @@ public class Contra : MonoBehaviour {
 				pos.x = (2.6f * i) + -11 + (99 * 2.6f);
 				pos.y = -3f;
 				ground.transform.position = pos;
-			}
-
-			for (int i = 0; i < 9; ++i) {
-				GameObject water = Instantiate (WaterPrefab) as GameObject;
-				Vector3 pos = Vector3.zero;
-				pos.x = (2.6f * i) + -11;
-				pos.y = -7f;
-				water.transform.position = pos;
-			}
-			for (int i = 0; i < 9; ++i) {
-				GameObject water = Instantiate (WaterPrefab) as GameObject;
-				Vector3 pos = Vector3.zero;
-				pos.x = (2.6f * i) + -11 + (11 * 2.6f);
-				pos.y = -7f;
-				water.transform.position = pos;
-			}
-			for (int i = 0; i < 23; ++i) {
-				GameObject water = Instantiate (WaterPrefab) as GameObject;
-				Vector3 pos = Vector3.zero;
-				pos.x = (2.6f * i) + -11 + (20 * 2.6f);
-				pos.y = -7f;
-				water.transform.position = pos;
-			}
-			for (int i = 0; i < 7; ++i) {
-				GameObject water = Instantiate (WaterPrefab) as GameObject;
-				Vector3 pos = Vector3.zero;
-				pos.x = (2.6f * i) + -11 + (46 * 2.6f);
-				pos.y = -7f;
-				water.transform.position = pos;
 			}
 
 			GameObject baddie1 = Instantiate (ShootBaddie) as GameObject;

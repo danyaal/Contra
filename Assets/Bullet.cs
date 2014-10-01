@@ -88,8 +88,8 @@ public class Bullet : MonoBehaviour {
 			GameObject playr=GameObject.FindGameObjectWithTag("PlayMain");
 			if(playr)
 			{
-				PlayerPrefab p=playr.GetComponent<PlayerPrefab>();
-				if(p.BulletsOnScreen!=0)
+				PlayerPrefab p = playr.GetComponent<PlayerPrefab>();
+				if(p && p.BulletsOnScreen!=0)
 					p.BulletsOnScreen--;
 			}
 

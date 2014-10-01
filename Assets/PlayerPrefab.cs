@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerPrefab : MonoBehaviour {
 	public Vector3		Velocity = Vector3.zero;
 	public float		Gravity	=	9.81f;
-	public float 		walkSpeed= 3f;
+	public float 		walkSpeed= 7f;
 	public char gun ='q';
 
 	public GameObject Bullet;
@@ -144,7 +144,7 @@ public class PlayerPrefab : MonoBehaviour {
 			GameObject.Find("Gun").transform.rotation = rot;*/
 		}
 
-		if (Input.GetKeyDown(",")&& !floating){
+		if (Input.GetKeyDown(".")&& !floating){
 			if(!InWater){
 				if(crouchFlag)
 					{floating=true;
@@ -154,7 +154,7 @@ public class PlayerPrefab : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyDown(".")&&gun!='m') {
+		if(Input.GetKeyDown(",")&&gun!='m') {
 
 			Vector3 vec = Vector3.zero;
 			// Figure out direction to send bullet
@@ -198,7 +198,7 @@ public class PlayerPrefab : MonoBehaviour {
 				shootlas(vec);
 		}
 
-		if (Input.GetKey (".") && gun == 'm') {
+		if (Input.GetKey (",") && gun == 'm') {
 			//MACHINE GUN FUNK
 			Vector3 vec = Vector3.zero;
 			// Figure out direction to send bullet
@@ -243,7 +243,7 @@ public class PlayerPrefab : MonoBehaviour {
 			
 				}
 
-		if (Input.GetKeyUp (".")) {
+		if (Input.GetKeyUp (",")) {
 			timePassed=0;
 			}
 
@@ -271,7 +271,7 @@ public class PlayerPrefab : MonoBehaviour {
 	{
 		Vector3 pos = transform.position;
 		if (spindrive) {
-			Velocity.y=15f;
+			Velocity.y=20f;
 			floating=true;
 			spindrive=false;
 		}
