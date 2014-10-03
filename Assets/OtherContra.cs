@@ -62,7 +62,7 @@ public class OtherContra : MonoBehaviour {
 		Lives--;
 		livesGUI.text = livesGUI.text.Substring(0, livesGUI.text.Length-1);
 		if (Lives <= 0) {
-			Application.LoadLevel("_GameOver");
+			Application.LoadLevel("_GameOver1");
 		}
 		//foreach(GameObject shot in shootersOnScreen)
 		thePlayer = Instantiate (PlayerPrefab) as GameObject;
