@@ -1,4 +1,6 @@
 Contra
 ======
 
-Fuck da polees.
+![Screenshot](http://i.imgur.com/FvFcJGT.png)
+
+by Danyaal Rangwala & Jake Debolt
